@@ -3,7 +3,7 @@
 Módulo Principal que administra el uso del tiempo del dispositivo, maneja las alarmas y el temporizador pomodoro para trabajar de manera óptima en algún proyecto.
 
 # Clases
-- [[Clase Alarm]]: Representa una alarma individual.
+- [[Clase Alarm|Alarm]]: Representa una alarma individual.
 - [[Clase UsageRecord|UsageRecord]]: Almacena información sobre el uso de una aplicación.
 - [[Clase ActivityEntry|ActivityEntry]]: Contiene datos sobre una entrada de registro de actividad.
 - [[Clase PomodoroSession|PomodoroSession]]: Administra una sesión de Pomodoro Completa.
