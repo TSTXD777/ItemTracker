@@ -18,3 +18,6 @@ Atributos:
 - karma: menciona si la actividad está configurada como negativa, positiva o ambas.
 	- validez: solo para tipo "habit".
 	- opción múltiple: "up", "down".
+
+---
+Perteneciente al Módulo [[Habitica]].

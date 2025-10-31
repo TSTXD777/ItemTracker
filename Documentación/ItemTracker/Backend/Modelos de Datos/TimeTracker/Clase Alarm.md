@@ -6,3 +6,6 @@ Atributos:
 - message: mensaje de la alarma.
 - enabled: la alarma está activada.
 - sound: ruta de audio de la alarma.
+
+---
+Perteneciente al Módulo [[TimeTracker]].

@@ -5,3 +5,6 @@ Atributos:
 - start_time: hora de inicio de la app.
 - end_time: hora de finalización de la app.
 - duration: duración de uso en segundos.
+
+---
+Perteneciente al Módulo [[TimeTracker]].

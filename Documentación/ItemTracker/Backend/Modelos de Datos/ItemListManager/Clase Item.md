@@ -10,3 +10,6 @@ Atributos:
 - date_completed: fecha en la que se completó el objeto. (opcional)
 - list: ID a la lista con la cual está vinculada.
 - tags: IDs a las etiquetas vinculadas.
+
+---
+Perteneciente al Módulo [[ItemListManager]].

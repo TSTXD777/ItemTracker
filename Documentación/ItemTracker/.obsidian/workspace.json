@@ -4,87 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0400cf44d608ab48",
+        "id": "e47ed0b2456b2ed2",
         "type": "tabs",
         "children": [
           {
-            "id": "3f00be9740351181",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Módulos/Habitica/Clase Task.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Clase Task"
-            }
-          },
-          {
-            "id": "b65fee99063c4d8b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Módulos/Habitica.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Habitica"
-            }
-          },
-          {
-            "id": "d275d70126f55591",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Módulos/Habitica/Clase Reward.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Clase Reward"
-            }
-          },
-          {
-            "id": "9b7912b44c176e7d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Módulos/Habitica/Clase HabiticaAPIWrapper.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Clase HabiticaAPIWrapper"
-            }
-          },
-          {
-            "id": "a06c6fe5c99b53b4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Módulos/TimeTracker/Clase UsageRecord.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Clase UsageRecord"
-            }
-          }
-        ]
-      },
-      {
-        "id": "37d7f68c0a1c3eef",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "aa5920dbddeeaff9",
+            "id": "aa3a9a93e186eba4",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -94,45 +18,17 @@
             }
           },
           {
-            "id": "27816dfc42a58a51",
+            "id": "c3c948be23004c85",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Módulos/Habitica/Clase Task.md",
+                "file": "Directorio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Clase Task"
-            }
-          },
-          {
-            "id": "ccee7ace09f6bf74",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Módulos/ItemListManager/Clase ItemList.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Clase ItemList"
-            }
-          },
-          {
-            "id": "43edf4948ab9ffb6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Módulos/TimeTracker.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "TimeTracker"
+              "title": "Directorio"
             }
           }
         ],
@@ -284,26 +180,39 @@
       "bases:Create new base": false
     }
   },
-  "active": "ed938c2cbbdc251d",
+  "active": "c3c948be23004c85",
   "lastOpenFiles": [
-    "Módulos.md",
-    "Módulos/Habitica/Clase Task.md",
-    "Módulos/Habitica.md",
-    "Módulos/Habitica/Clase Reward.md",
-    "Módulos/Habitica/Clase HabiticaAPIWrapper.md",
-    "Módulos/ItemListManager/Clase ItemList.md",
-    "Módulos/Habitica",
-    "Módulos/TimeTracker.md",
-    "Módulos/TimeTracker/Clase ActivityEntry.md",
-    "Módulos/TimeTracker/Clase PomodoroSession.md",
-    "Módulos/TimeTracker/Clase UsageRecord.md",
+    "Inicio/Descripción Proyecto.md",
+    "Directorio.md",
+    "Inicio",
+    "Inicio/Lista de Módulos.md",
+    "Frontend/Interfaz de usuario.md",
+    "Frontend/Nuevo Text Document.txt",
+    "Backend/Librerías y dependencias.md",
+    "Backend/Nuevo Text Document.txt",
+    "Backend/Modelos de Datos",
+    "Backend/Nueva carpeta",
+    "Backend/API.md",
     "Módulos/ItemListManager.md",
-    "Módulos/TimeTracker/Clase Alarm.md",
-    "Módulos/ItemListManager/Clase Item.md",
-    "Módulos/TimeTracker",
-    "Módulos/ItemListManager/Clase Tag.md",
-    "Módulos/ItemListManager",
-    "Módulos",
-    "Descripción Proyecto.md"
+    "Módulos/Habitica.md",
+    "Módulos/TimeTracker.md",
+    "Backend/Modelos de Datos/TimeTracker/Clase UsageRecord.md",
+    "Backend/Modelos de Datos/TimeTracker/Clase PomodoroSession.md",
+    "Backend/Modelos de Datos/TimeTracker/Clase Alarm.md",
+    "Backend/Modelos de Datos/TimeTracker/Clase ActivityEntry.md",
+    "Backend/Modelos de Datos/Habitica/Clase HabiticaAPIWrapper.md",
+    "Backend/Modelos de Datos/Habitica/Clase Reward.md",
+    "Backend/Modelos de Datos/Habitica/Clase Task.md",
+    "Backend/Modelos de Datos/ItemListManager/Clase Item.md",
+    "Backend/Modelos de Datos/ItemListManager/Clase ItemList.md",
+    "Backend/Modelos de Datos/ItemListManager/Clase Tag.md",
+    "Backend/MongoDB.md",
+    "Backend/Librerias de Python.md",
+    "Frontend/Godot.md",
+    "Frontend",
+    "Backend",
+    "Backend/Modelos de Datos/Habitica",
+    "Backend/Modelos de Datos/TimeTracker",
+    "Backend/Modelos de Datos/ItemListManager"
   ]
 }

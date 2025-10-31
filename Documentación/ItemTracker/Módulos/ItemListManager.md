@@ -31,3 +31,4 @@ Módulo Principal que administra listas y los objetos vinculados a ellas. Se pue
 - tag_query_id()
 - tag_query()
 - tag_query_all()
+

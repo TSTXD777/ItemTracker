@@ -37,3 +37,4 @@ Módulo Principal que interactúa con la API de [Habitica](https://habitica.com)
 - party_getInfo(): Obtiene información sobre el equipo.
 - party_getChat(): Obtiene el chat del equipo.
 - party_sendMessage(): Envía un mensaje al equipo.
+

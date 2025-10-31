@@ -5,3 +5,6 @@ Atributos:
 - date_created: fecha en la que fue creada la lista.
 - date_modified: fecha de la última modificación de la lista. (opcional)
 - tags: IDs a las etiquetas vinculadas.
+
+---
+Perteneciente al Módulo [[ItemListManager]].

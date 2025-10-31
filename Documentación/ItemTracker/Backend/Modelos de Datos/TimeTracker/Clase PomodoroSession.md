@@ -3,3 +3,6 @@ Atributos:
 - end_time: hora de finalización de la sesión.
 - pomodoro_count: cantidad de pomodoros completados durante la sesión.
 - session_notes: notas sobre la sesión.
+
+---
+Perteneciente al Módulo [[TimeTracker]].
