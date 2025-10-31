@@ -13,11 +13,11 @@
 			[[Clase Alarm]]
 			[[Clase PomodoroSession]]
 			[[Clase UsageRecord]]
-	[[API]]
-	[[Librerías y dependencias]]
+	[[API]] #TODO
+	[[Librerías y dependencias]] #TODO
 /Frontend/
-	[[Godot]]
-	[[Interfaz de usuario]]
+	[[Godot]] #TODO
+	[[Interfaz de usuario]] #TODO
 /Inicio/
 	[[Descripción Proyecto]]
 	[[Lista de Módulos]]
