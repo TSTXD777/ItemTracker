@@ -21,6 +21,8 @@
 /Inicio/
 	[[Descripción Proyecto]]
 	[[Lista de Módulos]]
+/Instrucciones para desarrolladores/
+	[[Inicio de Workspace]]
 /Módulos/
 	[[Habitica]]
 	[[ItemListManager]]
