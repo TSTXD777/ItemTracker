@@ -16,8 +16,9 @@ Para poder manejar y modificar la documentación de manera local, se hace uso de
 # 5. Instalación de Visual Studio Code
 Visual Studio Code en un IDE o editor de código donde vamos a programar la aplicación. El link de la página de descarga es: https://code.visualstudio.com/download
 
-# 6. Instalación de Anaconda
-Debido a que vamos a trabajar en python, tener un administrador de entornos nos ayuda a mantener nuestros paquetes y librerías en un solo lugar. La página de descarga es la siguiente: https://www.anaconda.com/download
+# 6. Instalación de MongoDB
+Se necesitará una base de Datos noSQL, por lo tanto, se hará uso de MongoDB. El servidor de la base de datos se puede descargar en: https://www.mongodb.com/try/download/community
+Si se desea tener acceso a ver la base de datos por medio de una GUI, se puede utilizar la siguiente herramienta: https://www.mongodb.com/products/tools/compass
 
 # 7. Instalación de Godot
 A pesar de que Godot en un Framework para diseñar videojuegos, en nuestro caso haremos uso de ello para poder crear el Frontend de la aplicación. Debido a que tiene una extensa habilidad de personalización, podemos hacer uso de ello para hacer una GUI o Interfaz de Usuario a libertad propia. Al descargar, asegurarse de descargar la versión .NET, la cual permite programación en C#. Link de descarga: https://godotengine.org/download/windows/
