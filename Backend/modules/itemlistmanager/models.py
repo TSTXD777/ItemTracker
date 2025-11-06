@@ -4,6 +4,11 @@ from enum import Enum
 from typing import List, Optional, TypedDict
 from marshmallow import Schema, fields
 import marshmallow_dataclass as marshdata
+from pymongo import MongoClient
+from pymongo.collection import Collection
+
+db_client = MongoClient()
+database = db_client["item_tracker_db"]
 
 class Priority(Enum):
     LOW = "low"
@@ -18,22 +23,47 @@ class Status(Enum):
 
 @dataclass
 class ItemList:
-    pass #TODO: Implementar la clase ItemList
-    
+    name: str
+    id: Optional[str] # MongoDB genera un ID automáticamente
+    description: Optional[str]
+    date_created: datetime
+    date_modified: Optional[datetime]
+    tags_id: List[str] # Contiene los IDs de las etiquetas asociadas al ítem
+
     # Métodos para serialización y deserialización
     def to_typed_dict(self) -> "ItemListTypedDict":
-        pass
+        return {
+            "name": self.name,
+            "id": self.id,
+            "description": self.description,
+            "date_created": self.date_created.isoformat(),
+            "date_modified": self.date_modified.isoformat() if self.date_modified else None,
+            "tags_id": self.tags_id
+        }
 
     def to_schema(self):
-        pass
+        ItemListSchema = marshdata.class_schema(ItemList)
+        schema = ItemListSchema()
+        return schema.dump(self)
 
     def from_schema(self, data):
-        pass
+        ItemListSchema = marshdata.class_schema(ItemList)
+        schema = ItemListSchema()
+        return schema.load(data)
 
+    
     # Métodos CRUD (Create, Read, Update, Delete)
     #TODO: Implementar la lógica de cada método
     def create(self):
-        pass
+        self.itemlist_collection = database["itemlists"]
+        try:
+            result = self.itemlist_collection.insert_one(self.to_typed_dict())
+            print(f"Se creó el ItemList con ID: {result.inserted_id}")
+            return result.inserted_id
+        except Exception as e:
+            print(f"Error al crear el ItemList: {e}")
+            return None
+    
     def edit(self):
         pass
     def delete(self):
@@ -109,17 +139,29 @@ class Item:
 
 @dataclass
 class Tag:
-    pass #TODO: Implementar la clase Tag
+    name: str
+    id: Optional[str] # MongoDB genera un ID automáticamente
+    description: Optional[str]
+    color: str
 
     # Métodos para serialización y deserialización
-    def to_typed_dict(self) -> "ItemListTypedDict":
-        pass
+    def to_typed_dict(self) -> "TagTypedDict":
+        return {
+            "name": self.name,
+            "id": self.id,
+            "description": self.description,
+            "color": self.color
+        }
 
     def to_schema(self):
-        pass
+        TagSchema = marshdata.class_schema(Tag)
+        schema = TagSchema()
+        return schema.dump(self)
 
     def from_schema(self, data):
-        pass
+        TagSchema = marshdata.class_schema(Tag)
+        schema = TagSchema()
+        return schema.load(data)
 
     # Métodos CRUD (Create, Read, Update, Delete)
     #TODO: Implementar la lógica de cada método
@@ -137,7 +179,12 @@ class Tag:
         pass
 
 class ItemListTypedDict(TypedDict):
-    pass #TODO: Implementar el TypedDict para ItemList
+    name: str
+    id: Optional[str]
+    description: Optional[str]
+    date_created: str
+    date_modified: Optional[str]
+    tags_id: List[str]
 
 class ItemTypedDict(TypedDict):
     name: str
@@ -153,4 +200,7 @@ class ItemTypedDict(TypedDict):
     tags_id: List[str]
 
 class TagTypedDict(TypedDict):
-    pass #TODO: Implementar el TypedDict para Tag
+    name: str
+    id: Optional[str]
+    description: Optional[str]
+    color: str
