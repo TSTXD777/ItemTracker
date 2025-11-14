@@ -14,7 +14,7 @@
 			[[Clase PomodoroSession]]
 			[[Clase UsageRecord]]
 	[[API]] #TODO
-	[[Librerías y dependencias]] #TODO
+	[[Librerías y dependencias]]
 /Frontend/
 	[[Godot]] #TODO
 	[[Interfaz de usuario]] #TODO
@@ -22,7 +22,9 @@
 	[[Descripción Proyecto]]
 	[[Lista de Módulos]]
 /Instrucciones para desarrolladores/
+	[[Etapas de Desarrollo]]
 	[[Inicio de Workspace]]
+	[[Patrones de Diseño]]
 /Módulos/
 	[[Habitica]]
 	[[ItemListManager]]

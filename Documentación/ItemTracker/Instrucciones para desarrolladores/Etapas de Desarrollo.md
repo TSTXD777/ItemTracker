@@ -1,0 +1,60 @@
+- [ ] Desarrollo de Modelos
+	- [ ] Modelos de ItemListManager
+		- [ ] Item
+		- [ ] ItemList
+		- [ ] Tag
+	- [ ] Modelos de TimeTracker
+		- [ ] ActivityEntry
+		- [ ] Alarm
+		- [ ] PomodoroSession
+		- [ ] UsageRecord
+	- [ ] Modelos de Habitica
+		- [ ] HabiticaAPIWrapper
+		- [ ] Reward
+		- [ ] Task
+- [ ] Desarrollo de Funciones
+	- [ ] Funciones del módulo ItemListManager
+		- [ ] CRUD de modelos hacia DB
+		- [ ] Creación automática de Fechas de Creación en Item
+		- [ ] Vinculación de Item con una ItemList y Tags
+		- [ ] Creación automática de Fechas de Creación en ItemList
+		- [ ] Vinculación de ItemList con Tags
+		- [ ] Actualizar la fecha de última modificación de ItemList
+		- [ ] Implementar modificación de status del Item
+		- [ ] Implementar la fecha de cumplimiento y marcar el Item como cumplido
+		- [ ] Verificación de Fecha actual y del deadline del Item
+	- [ ] Funciones del módulo TimeTracker
+		- [ ] CRUD de modelos hacia DB
+		- [ ] Seguimiento de Aplicaciones
+		- [ ] Funcionamiento de Alarmas
+		- [ ] Funcionamiento de Pomodoro
+		- [ ] Seguimiento de Actividad en Intérvalos de Tiempo 
+	- [ ] Funciones del módulo Habitica
+		- [ ] Sincronización con el servidor según la Llave API del usuario
+		- [ ] Adquisición de Datos Básicos (Vida, Exp, Mana, Monedas)
+		- [ ] CRUD de modelos hacia el Servidor
+		- [ ] Implementar compra de Rewards
+		- [ ] Adquirir Chat e Info del quipo
+		- [ ] Enviar Mensaje al Chat
+- [ ] Implementación de Comunicación Funcional
+	- [ ] Comunicación entre Backend y MongoDB
+	- [ ] Comunicación entre FastAPI y Backend
+	- [ ] Comunicación entre HabiticaLib y la App Web de Habitica
+	- [ ] Comunicación entre Frontend y FastAPI
+- [ ] Desarrollo de Pantallas en el Frontend
+	- [ ] Pantalla Home/Principal
+		- [ ] Reloj con hora actual
+		- [ ] Cita del día
+	- [ ] Barra Vertical de selección de Módulos
+	- [ ] Pantalla del Módulo ItemListManager
+		- [ ] Sección de ItemList
+		- [ ] Sección de Item
+		- [ ] Sección de Tag
+	- [ ] Pantalla del Módulo TimeTracker
+		- [ ] Sección de Pomodoro
+		- [ ] Sección de Alarmas
+		- [ ] Sección de Actividades Recientes
+	- [ ] Pantalla del Módulo Habitica
+		- [ ] Sección de Tareas
+		- [ ] Sección de Chat del equipo
+	- [ ] Pantalla de Configuración Extra
