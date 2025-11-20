@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
+from pydantic import BaseModel
 from typing import List, Optional, TypedDict
 from marshmallow import Schema, fields
 import marshmallow_dataclass as marshdata
@@ -22,7 +23,7 @@ class Status(Enum):
     COMPLETED = "completed"
 
 @dataclass
-class ItemList:
+class ItemList(BaseModel):
     name: str
     id: Optional[str] # MongoDB genera un ID automáticamente
     description: Optional[str]
@@ -76,7 +77,7 @@ class ItemList:
         pass
 
 @dataclass
-class Item:
+class Item(BaseModel):
     name: str
     id: Optional[str] # MongoDB genera un ID automáticamente
     description: Optional[str]
@@ -138,7 +139,7 @@ class Item:
         pass
 
 @dataclass
-class Tag:
+class Tag(BaseModel):
     name: str
     id: Optional[str] # MongoDB genera un ID automáticamente
     description: Optional[str]
