@@ -80,17 +80,41 @@ class ItemList(BaseModel):
             print(f"Error al crear el ItemList: {e}")
             return None
 
-    def edit(): #TODO: Implementar la lógica de edición @eder2511
-        try:
-            return str("funciona")
-        except Exception as e:
-            print(f"Error al editar el ItemList: {e}")
-            return None
-        #editar en la base de datos según los parámetros especificados
+    def edit(itemlist_id: str, new_data: ItemListCreate): #TODO: Implementar la lógica de edición @eder2511
+       try:
+            # 1. Preparar la conexión a la colección
+            itemlistcollection: Collection = database["itemlists"]
+            
+            # 2. Construir el filtro (query) para encontrar el documento
+            # Es necesario convertir el string del ID a un ObjectId de MongoDB
+            filter_query = {"_id": ObjectId(itemlist_id)}
+            
+            # 3. Construir las actualizaciones
+            update_data = new_data.model_dump(exclude_unset=True) # Solo incluye los campos que se establecieron en new_data
+            
+            # 4. Actualizar la fecha de modificación
+            update_data["date_modified"] = datetime.now().isoformat()
+            
+            # 5. Ejecutar la actualización en la base de datos
+            # $set actualiza solo los campos proporcionados sin reemplazar el documento completo
+            result = itemlistcollection.update_one(
+                filter_query,
+                {"$set": update_data}
+            )
 
-        #actualizar la fecha de modificación
-
-        pass
+            # 6. Retornar resultado
+            if result.matched_count == 0:
+                print(f"Advertencia: No se encontró ningún ItemList con ID: {itemlist_id}")
+                return False
+            elif result.modified_count == 1:
+                print(f"ItemList con ID {itemlist_id} editado exitosamente.")
+                return True
+            else:
+                print(f"ItemList con ID {itemlist_id} encontrado pero no modificado (posiblemente los datos son idénticos).")
+                return True # Consideramos que no modificar porque ya estaba así es un éxito.
+       except Exception as e: 
+           print(f"Error al editar el ItemList: {e}")
+           return False
     def delete(): #TODO: Implementar la lógica de eliminación @mariozapata1408
         pass
     def query(): #TODO: Implementar la lógica de consulta @rchavez-code
