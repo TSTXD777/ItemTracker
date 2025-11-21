@@ -14,6 +14,10 @@ from .apimodels import ItemListCreate
 db_client = MongoClient()
 database = db_client["item_tracker_db"]
 
+# Instrucciones
+# 1 API -> 2 Función actual -> 3 Modifica la Base de Datos - 4 Retornar resultado
+
+
 class Priority(Enum):
     LOW = "low"
     MEDIUM = "medium"
@@ -76,9 +80,15 @@ class ItemList(BaseModel):
             print(f"Error al crear el ItemList: {e}")
             return None
 
-    def edit(self): #TODO: Implementar la lógica de edición
+    def edit(self): #TODO: Implementar la lógica de edición @eder2511
+
+        
+        #editar en la base de datos según los parámetros especificados
+
+        #actualizar la fecha de modificación
+
         pass
-    def delete(self): #TODO: Implementar la lógica de eliminación
+    def delete(self): #TODO: Implementar la lógica de eliminación @eder2511
         pass
     def query(self): #TODO: Implementar la lógica de consulta
         pass

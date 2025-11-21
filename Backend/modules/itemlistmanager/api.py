@@ -5,9 +5,13 @@ from .apimodels import ItemListCreate
 
 app = FastAPI()
 # Comando para ejecutar el servidor FastAPI:
-# cd modules/itemlistmanager
 # fastapi dev modules/itemlistmanager/api.py --port 8564
 # uvicorn modules.itemlistmanager.api:app --reload --port 8564
+
+
+# Crear función de API @app.tipo
+# Añadir la función def nombre_función(parámetros):
+# añadir un try-except para manejar errores 
 
 @app.post("/itemlistmanager/itemlists/create/", tags=["ItemList"])
 def create_itemlist(inputdata: ItemListCreate):
@@ -31,3 +35,13 @@ def get_all_itemlists():
             }
     except Exception as e:
         return {"message": f"Error al consultar los ItemLists: {str(e)}"}
+
+
+
+@app.post("/itemlistmanager/itemlists/edit/", tags=["ItemList"])
+def edit_itemlist(inputdata):
+    try:
+        #TODO: Implementar la lógica de edición @eder2511
+        pass  
+    except Exception as e:
+        return {"message": f"Error al editar el ItemList: {str(e)}"}
