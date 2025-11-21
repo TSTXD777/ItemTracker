@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 # Use explicit relative import so the module can be imported from the package/root reliably
 from .models import ItemList
+from .apimodels import ItemListCreate
 
 app = FastAPI()
 # Comando para ejecutar el servidor FastAPI:
@@ -9,9 +10,24 @@ app = FastAPI()
 # uvicorn modules.itemlistmanager.api:app --reload --port 8564
 
 @app.post("/itemlistmanager/itemlists/create/", tags=["ItemList"])
-def create_itemlist(itemlist: ItemList):
+def create_itemlist(inputdata: ItemListCreate):
     try:
-        itemlist.create()
+        ItemList.create(inputdata)
         return {"message": "ItemList creado con éxito."}
     except Exception as e:
         return {"message": f"Error al crear el ItemList: {str(e)}"}
+    
+@app.get("/itemlistmanager/itemlists/get_all/", tags=["ItemList"])
+def get_all_itemlists():
+    try:
+        items = ItemList.query_all()
+
+        for item in items:
+            item["_id"] = str(item["_id"])  # Convertir ObjectId a string
+
+        return {
+            "query": items,
+            "message": "Consulta de ItemLists exitosa."        
+            }
+    except Exception as e:
+        return {"message": f"Error al consultar los ItemLists: {str(e)}"}

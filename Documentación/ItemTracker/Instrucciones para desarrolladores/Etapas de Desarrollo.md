@@ -17,7 +17,7 @@
 		- [ ] CRUD de modelos hacia DB
 		- [ ] Creación automática de Fechas de Creación en Item
 		- [ ] Vinculación de Item con una ItemList y Tags
-		- [ ] Creación automática de Fechas de Creación en ItemList
+		- [x] Creación automática de Fechas de Creación en ItemList
 		- [ ] Vinculación de ItemList con Tags
 		- [ ] Actualizar la fecha de última modificación de ItemList
 		- [ ] Implementar modificación de status del Item
