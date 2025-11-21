@@ -1,0 +1,1 @@
+# Comando para activar entorno virtual = .\.venv\Scripts\Activate.ps1
