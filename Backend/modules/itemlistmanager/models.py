@@ -80,9 +80,12 @@ class ItemList(BaseModel):
             print(f"Error al crear el ItemList: {e}")
             return None
 
-    def edit(self): #TODO: Implementar la lógica de edición @eder2511
-
-        
+    def edit(): #TODO: Implementar la lógica de edición @eder2511
+        try:
+            return str("funciona")
+        except Exception as e:
+            print(f"Error al editar el ItemList: {e}")
+            return None
         #editar en la base de datos según los parámetros especificados
 
         #actualizar la fecha de modificación

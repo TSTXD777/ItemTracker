@@ -12,7 +12,7 @@ object = ItemListCreate(
 def main():
     # ItemList.create(object)
     # print(ItemList.query_all())
-    print
+    print(ItemList.edit())
 
 
 if __name__ == "__main__":
