@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 # Use explicit relative import so the module can be imported from the package/root reliably
 from .models import ItemList
-from .apimodels import ItemListCreate
+from .apimodels import ItemListCreate, ItemListEdit
 
 app = FastAPI()
 # Comando para ejecutar el servidor FastAPI:
@@ -39,7 +39,7 @@ def get_all_itemlists():
 
 
 @app.post("/itemlistmanager/itemlists/edit/", tags=["ItemList"])
-def edit_itemlist(inputdata):
+def edit_itemlist(inputdata: ItemListEdit):
     try:
         #TODO: Implementar la lógica de edición @eder2511
         pass  

@@ -91,11 +91,17 @@ class ItemList(BaseModel):
         #actualizar la fecha de modificación
 
         pass
-    def delete(self): #TODO: Implementar la lógica de eliminación @eder2511
+    def delete(): #TODO: Implementar la lógica de eliminación @mariozapata1408
         pass
-    def query(self): #TODO: Implementar la lógica de consulta
+    def query(): #TODO: Implementar la lógica de consulta @rchavez-code
+        
+        #buscar por un filtro proporcionado
+        
         pass
-    def query_by_id(self): #TODO: Implementar la lógica de consulta por ID
+    def query_by_id(self): #TODO: Implementar la lógica de consulta por ID @
+
+        #buscar por el ID proporcionado
+
         pass
     def query_all():
         try:
