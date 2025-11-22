@@ -14,6 +14,13 @@ config/name="ItemTracker Frontend"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/borderless=true
+window/dpi/allow_hidpi=false
+
 [dotnet]
 
 project/assembly_name="ItemTracker Frontend"

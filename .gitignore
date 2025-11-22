@@ -6,3 +6,4 @@
 
 # elementos generados por Python
 **/__pycache__
+*.import
