@@ -182,6 +182,12 @@
   },
   "active": "4ae11c93a3453276",
   "lastOpenFiles": [
+    "Backend/modules/itemlistmanager/__pycache__/apimodels.cpython-312.pyc",
+    "Backend/modules/itemlistmanager/__pycache__/models.cpython-312.pyc",
+    "Backend/modules/itemlistmanager/__pycache__/__init__.cpython-312.pyc",
+    "Backend/modules/itemlistmanager/__pycache__/api.cpython-312.pyc",
+    "Backend/modules/itemlistmanager/__pycache__",
+    "Backend/modules/itemlistmanager/test_eder.py",
     "Documentación/ItemTracker/Backend/API.md",
     "Documentación/ItemTracker/Frontend/Diseño UI/PantallaHome.excalidraw.md",
     "Documentación/ItemTracker/Frontend/Godot.md",
@@ -199,11 +205,6 @@
     "Documentación/ItemTracker/Frontend/Diseño UI",
     "Documentación/ItemTracker/Excalidraw/Scripts/Downloaded",
     "Documentación/ItemTracker/Excalidraw/universal-ui-kit.excalidrawlib",
-    "Documentación/ItemTracker/Excalidraw/Scripts",
-    "Documentación/ItemTracker/Excalidraw/it-icons.excalidrawlib",
-    "Documentación/ItemTracker/Excalidraw/ecommerce-mobile-ui.excalidrawlib",
-    "Documentación/ItemTracker/Excalidraw/basic-ux-wireframing-elements.excalidrawlib",
-    "Documentación/ItemTracker/Excalidraw/awesome-icons.excalidrawlib",
     "Documentación/ItemTracker/Backend/Librerías y dependencias.md"
   ]
 }

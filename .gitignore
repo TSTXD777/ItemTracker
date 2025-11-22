@@ -6,3 +6,4 @@ Documentación/ItemTracker/.obsidian/plugins/obsidian-git/data.json
 
 # elementos generados por Python
 /Backend/modules/itemlistmanager/__pycache__
+.obsidian/workspace.json

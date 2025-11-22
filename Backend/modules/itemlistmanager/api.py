@@ -41,7 +41,23 @@ def get_all_itemlists():
 @app.post("/itemlistmanager/itemlists/edit/", tags=["ItemList"])
 def edit_itemlist(inputdata: ItemListEdit):
     try:
-        #TODO: Implementar la lógica de edición @eder2511
-        pass  
+        # 1. Obtener el ID del objeto a editar
+        item_id = inputdata.id
+        
+        # 2. Preparar los nuevos datos para la función edit
+        # Usamos el objeto ItemListEdit completo ya que la función ItemList.edit 
+        # acepta un objeto de modelo que contiene los campos a actualizar.
+        # Si ItemList.edit requiere solo los campos de ItemListCreate, 
+        # podría ser necesario remapear o usar directamente ItemListEdit
+        
+        # 3. Llamar a la función estática ItemList.edit()
+        # Nota: La función ItemList.edit requiere el ID y los new_data.
+        success = ItemList.edit(item_id, inputdata)
+
+        if success:
+            return {"message": f"ItemList con ID {item_id} editado con éxito."}
+        else:
+            # Si la función edit retorna False (ej: no se encontró el ID)
+            return {"message": f"Error: No se pudo encontrar o editar el ItemList con ID {item_id}."}  
     except Exception as e:
         return {"message": f"Error al editar el ItemList: {str(e)}"}
