@@ -68,7 +68,7 @@ class ItemList(BaseModel):
         ItemList.name = itemlist.name
         ItemList.description = itemlist.description
         ItemList.date_modified = None
-        ItemList.date_created = datetime.now()
+        ItemList.date_created = datetime.now().isoformat()
         ItemList.tags_id = itemlist.tags_id
 
         try:
