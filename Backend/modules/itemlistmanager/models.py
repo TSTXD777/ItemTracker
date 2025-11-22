@@ -9,7 +9,7 @@ from pymongo import MongoClient
 from pymongo.collection import Collection
 import json
 
-from .apimodels import ItemListCreate
+from .apimodels import ItemListCreate, ItemListEdit
 
 db_client = MongoClient()
 database = db_client["item_tracker_db"]
@@ -80,21 +80,28 @@ class ItemList(BaseModel):
             print(f"Error al crear el ItemList: {e}")
             return None
 
-    def edit(itemlist_id: str, new_data: ItemListCreate): #TODO: Implementar la lógica de edición @eder2511
-       try:
-            # 1. Preparar la conexión a la colección
+    def edit(new_data: ItemListEdit): #TODO: Implementar la lógica de edición @eder2511
+        
+        query_id = new_data.id
+        ItemList.name = new_data.name if hasattr(new_data, "name") and new_data.name is not None else ItemList.name
+        ItemList.description = new_data.description if hasattr(new_data, "description") and new_data.description is not None else ItemList.description
+        ItemList.tags_id = new_data.tags_id if hasattr(new_data, "tags_id") and new_data.tags_id is not None else ItemList.tags_id
+        
+        try:
             itemlistcollection: Collection = database["itemlists"]
+
+            filter_query = {"_id": query_id}
             
-            # 2. Construir el filtro (query) para encontrar el documento
-            # Es necesario convertir el string del ID a un ObjectId de MongoDB
-            filter_query = {"_id": ObjectId(itemlist_id)}
+            # 3. Construir las actualizaciones de los datos proporcionados
+            # Solo incluye los campos que se establecieron en new_data (exclude_unset=True)
+            update_data = new_data.model_dump(exclude_unset=True) 
             
-            # 3. Construir las actualizaciones
-            update_data = new_data.model_dump(exclude_unset=True) # Solo incluye los campos que se establecieron en new_data
-            
-            # 4. Actualizar la fecha de modificación
+            # 4. Actualizar la fecha de modificación (en formato datetime nativo de Python)
+            # MongoDB almacenará esto como un tipo BSON Date
             update_data["date_modified"] = datetime.now().isoformat()
+            print(f"Datos a actualizar para ItemList con ID {query_id}: {update_data}")
             
+            '''
             # 5. Ejecutar la actualización en la base de datos
             # $set actualiza solo los campos proporcionados sin reemplazar el documento completo
             result = itemlistcollection.update_one(
@@ -107,14 +114,16 @@ class ItemList(BaseModel):
                 print(f"Advertencia: No se encontró ningún ItemList con ID: {itemlist_id}")
                 return False
             elif result.modified_count == 1:
-                print(f"ItemList con ID {itemlist_id} editado exitosamente.")
+                print(f"ItemList con ID {itemlist_id} editado exitosamente. Fecha de modificación actualizada.")
                 return True
             else:
+                # Caso donde se encuentra pero no se modifica (los datos son idénticos)
                 print(f"ItemList con ID {itemlist_id} encontrado pero no modificado (posiblemente los datos son idénticos).")
-                return True # Consideramos que no modificar porque ya estaba así es un éxito.
-       except Exception as e: 
-           print(f"Error al editar el ItemList: {e}")
-           return False
+                return True 
+            '''
+        except Exception as e: 
+            print(f"Error al editar el ItemList: {e}")
+            return False
     def delete(): #TODO: Implementar la lógica de eliminación @mariozapata1408
         pass
     def query(): #TODO: Implementar la lógica de consulta @rchavez-code

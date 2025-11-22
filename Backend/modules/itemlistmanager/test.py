@@ -11,8 +11,8 @@ object = ItemListCreate(
 
 def main():
     # ItemList.create(object)
-    # print(ItemList.query_all())
-    print(ItemList.edit())
+    print(ItemList.query_all())
+    # print(ItemList.edit())
 
 
 if __name__ == "__main__":

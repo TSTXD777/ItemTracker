@@ -6,4 +6,6 @@
 
 # elementos generados por Python
 **/__pycache__
+
+# Archivos de Godot
 *.import
