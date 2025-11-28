@@ -6,4 +6,6 @@
 
 # elementos generados por Python
 **/__pycache__
-.obsidian/workspace.json
+
+# Archivos de Godot
+*.import

@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://0nrip2m8tbw6"]
+[gd_scene load_steps=2 format=3 uid="uid://0nrip2m8tbw6"]
+
+[ext_resource type="Texture2D" uid="uid://bb5bxpffp0xh4" path="res://assets/textures/button_temp.png" id="1_jboyx"]
 
 [node name="MenuHome" type="Control"]
+layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -9,3 +12,67 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="MainBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16862746, 0.16862746, 0.16862746, 1)
+
+[node name="ModuleBar" type="ColorRect" parent="MainBackground"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 100.0
+grow_vertical = 2
+color = Color(0.18, 0.25, 0.22666667, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainBackground/ModuleBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="Control" parent="MainBackground/ModuleBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuToggle" type="TextureButton" parent="MainBackground/ModuleBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_jboyx")
+stretch_mode = 5
+
+[node name="ModulesContainer" type="VBoxContainer" parent="MainBackground/ModuleBar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModuleButton1" type="TextureButton" parent="MainBackground/ModuleBar/VBoxContainer/ModulesContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("1_jboyx")
+stretch_mode = 5
+
+[node name="ModuleButton2" type="TextureButton" parent="MainBackground/ModuleBar/VBoxContainer/ModulesContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("1_jboyx")
+stretch_mode = 5
+
+[node name="SettingsButton" type="TextureButton" parent="MainBackground/ModuleBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_jboyx")
+stretch_mode = 5
+
+[node name="Container2" type="Control" parent="MainBackground/ModuleBar/VBoxContainer"]
+layout_mode = 2
