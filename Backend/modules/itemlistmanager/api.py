@@ -1,3 +1,4 @@
+from bson import ObjectId
 from fastapi import FastAPI
 # Use explicit relative import so the module can be imported from the package/root reliably
 from .models import ItemList
@@ -41,23 +42,23 @@ def get_all_itemlists():
 @app.post("/itemlistmanager/itemlists/edit/", tags=["ItemList"])
 def edit_itemlist(inputdata: ItemListEdit):
     try:
-        # 1. Obtener el ID del objeto a editar
-        item_id = inputdata.id
+         # 1. Validar que el ID no esté vacío
+        if not inputdata.id:
+            raise ValueError("El ID del ItemList no puede estar vacío.")
         
-        # 2. Preparar los nuevos datos para la función edit
-        # Usamos el objeto ItemListEdit completo ya que la función ItemList.edit 
-        # acepta un objeto de modelo que contiene los campos a actualizar.
-        # Si ItemList.edit requiere solo los campos de ItemListCreate, 
-        # podría ser necesario remapear o usar directamente ItemListEdit
+        # 2. Convertir el ID a ObjectId si es necesario
+        try:
+            item_id = ObjectId(inputdata.id)
+        except Exception:
+            raise ValueError(f"ID inválido: {inputdata.id}")
         
-        # 3. Llamar a la función estática ItemList.edit()
-        # Nota: La función ItemList.edit requiere el ID y los new_data.
-        success = ItemList.edit(item_id, inputdata)
-
-        if success:
-            return {"message": f"ItemList con ID {item_id} editado con éxito."}
-        else:
-            # Si la función edit retorna False (ej: no se encontró el ID)
-            return {"message": f"Error: No se pudo encontrar o editar el ItemList con ID {item_id}."}  
+        # 3. Llamar a la función interna que modifica la BD y retorna resultado
+        result = ItemList.edit(item_id, inputdata)
+        
+        # 4. Retornar el resultado a la API
+        return result
+        
+    except ValueError as ve:
+        return {"success": False, "message": f"Error de validación: {str(ve)}", "data": None}
     except Exception as e:
-        return {"message": f"Error al editar el ItemList: {str(e)}"}
+        return {"success": False, "message": f"Error al editar el ItemList: {str(e)}", "data": None}

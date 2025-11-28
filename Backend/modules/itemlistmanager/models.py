@@ -80,50 +80,70 @@ class ItemList(BaseModel):
             print(f"Error al crear el ItemList: {e}")
             return None
 
-    def edit(new_data: ItemListEdit): #TODO: Implementar la lógica de edición @eder2511
+    def edit(item_id, new_data: ItemListEdit) -> dict:
+        """
+        Modifica un ItemList en la BD y retorna el resultado.
         
-        query_id = new_data.id
-        ItemList.name = new_data.name if hasattr(new_data, "name") and new_data.name is not None else ItemList.name
-        ItemList.description = new_data.description if hasattr(new_data, "description") and new_data.description is not None else ItemList.description
-        ItemList.tags_id = new_data.tags_id if hasattr(new_data, "tags_id") and new_data.tags_id is not None else ItemList.tags_id
-        
+        Args:
+            item_id: ObjectId del ItemList a editar
+            new_data: Objeto ItemListEdit con los datos a actualizar
+            
+        Returns:
+            dict: {"success": bool, "message": str, "data": dict or None}
+        """
         try:
             itemlistcollection: Collection = database["itemlists"]
-
-            filter_query = {"_id": query_id}
             
-            # 3. Construir las actualizaciones de los datos proporcionados
-            # Solo incluye los campos que se establecieron en new_data (exclude_unset=True)
-            update_data = new_data.model_dump(exclude_unset=True) 
+            # 1. Validar que el documento existe
+            existing_item = itemlistcollection.find_one({"_id": item_id})
+            if not existing_item:
+                return {
+                    "success": False,
+                    "message": f"ItemList con ID {item_id} no encontrado.",
+                    "data": None
+                }
             
-            # 4. Actualizar la fecha de modificación (en formato datetime nativo de Python)
-            # MongoDB almacenará esto como un tipo BSON Date
+            # 2. Construir los datos a actualizar (solo los campos que se proporcionaron)
+            update_data = new_data.model_dump(exclude_unset=True)
+            
+            # 3. Agregar fecha de modificación
             update_data["date_modified"] = datetime.now().isoformat()
-            print(f"Datos a actualizar para ItemList con ID {query_id}: {update_data}")
             
-            '''
-            # 5. Ejecutar la actualización en la base de datos
-            # $set actualiza solo los campos proporcionados sin reemplazar el documento completo
+            print(f"Datos a actualizar para ItemList con ID {item_id}: {update_data}")
+            
+            # 4. Ejecutar la actualización en la BD
             result = itemlistcollection.update_one(
-                filter_query,
+                {"_id": item_id},
                 {"$set": update_data}
             )
-
-            # 6. Retornar resultado
+            
+            # 5. Retornar resultado
             if result.matched_count == 0:
-                print(f"Advertencia: No se encontró ningún ItemList con ID: {itemlist_id}")
-                return False
-            elif result.modified_count == 1:
-                print(f"ItemList con ID {itemlist_id} editado exitosamente. Fecha de modificación actualizada.")
-                return True
+                return {
+                    "success": False,
+                    "message": f"No se encontró ningún ItemList con ID: {item_id}",
+                    "data": None
+                }
+            elif result.modified_count >= 1:
+                return {
+                    "success": True,
+                    "message": f"ItemList con ID {item_id} editado exitosamente.",
+                    "data": update_data
+                }
             else:
-                # Caso donde se encuentra pero no se modifica (los datos son idénticos)
-                print(f"ItemList con ID {itemlist_id} encontrado pero no modificado (posiblemente los datos son idénticos).")
-                return True 
-            '''
-        except Exception as e: 
+                return {
+                    "success": True,
+                    "message": f"ItemList con ID {item_id} encontrado pero no modificado (datos idénticos).",
+                    "data": None
+                }
+                
+        except Exception as e:
             print(f"Error al editar el ItemList: {e}")
-            return False
+            return {
+                "success": False,
+                "message": f"Error al editar el ItemList: {str(e)}",
+                "data": None
+            }
     def delete(): #TODO: Implementar la lógica de eliminación @mariozapata1408
         pass
     def query(): #TODO: Implementar la lógica de consulta @rchavez-code
